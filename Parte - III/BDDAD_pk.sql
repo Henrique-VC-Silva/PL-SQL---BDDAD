@@ -1,0 +1,32 @@
+ALTER TABLE Armazem ADD CONSTRAINT cod_Armazem PRIMARY KEY (cod_armazem);
+ALTER TABLE ZonaFisica ADD CONSTRAINT cod_armazem PRIMARY KEY (cod_zona_fisica, cod_armazem);
+ALTER TABLE Produto ADD PRIMARY KEY (cod_produto);
+ALTER TABLE precoProduto ADD PRIMARY KEY (dataInicio, cod_produto);
+ALTER TABLE NotaEncomenda ADD PRIMARY KEY (cod_nota_encomenda);
+ALTER TABLE ZonaGeografica ADD CONSTRAINT cod_zona PRIMARY KEY (cod_zona);
+ALTER TABLE Funcionario ADD PRIMARY KEY (cod_funcionario);
+ALTER TABLE Motorista ADD PRIMARY KEY (cod_funcionario);
+ALTER TABLE FielArmazem ADD PRIMARY KEY (cod_funcionario);
+ALTER TABLE Cliente ADD PRIMARY KEY (cod_cliente);
+ALTER TABLE TipoCliente ADD PRIMARY KEY (cod_tipo);
+ALTER TABLE GuiaSaidaProduto ADD PRIMARY KEY (linha, cod_nota_encomenda);
+ALTER TABLE TipoVeiculo ADD PRIMARY KEY (cod_tipo_veiculo);
+ALTER TABLE Viagem ADD PRIMARY KEY (cod_viagem);
+ALTER TABLE Etapa ADD PRIMARY KEY (nr_etapa);
+ALTER TABLE Relatorio ADD PRIMARY KEY (cod_relatorio);
+ALTER TABLE Incidente ADD PRIMARY KEY (cod_incidente);
+ALTER TABLE Fatura ADD PRIMARY KEY (nr_fatura);
+ALTER TABLE Vendedor ADD PRIMARY KEY (cod_funcionario);
+ALTER TABLE Pagamento ADD PRIMARY KEY (cod_pagamento);
+ALTER TABLE ArmazemProduto ADD PRIMARY KEY (cod_produto, cod_armazem);
+ALTER TABLE Marca ADD PRIMARY KEY (cod_marca);
+ALTER TABLE Veiculo ADD PRIMARY KEY (matricula);
+ALTER TABLE Modelo ADD PRIMARY KEY (cod_modelo, cod_marca);
+ALTER TABLE Unidade ADD PRIMARY KEY (cod_unidade);
+ALTER TABLE TipoIncidente ADD PRIMARY KEY (cod_tipo_incidente);
+ALTER TABLE ProdutoZonaFisica ADD PRIMARY KEY (cod_produto, cod_zona_fisica, cod_armazem);
+ALTER TABLE GuiaTransporte ADD PRIMARY KEY (cod_guia_transporte);
+
+
+ALTER TABLE Veiculo ADD PRIMARY KEY (matricula);
+ALTER TABLE Veiculo ADD CONSTRAINT FKVeiculo136430 FOREIGN KEY (cod_modelo, cod_marca) REFERENCES Modelo (cod_modelo, cod_marca);
